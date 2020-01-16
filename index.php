@@ -35,10 +35,10 @@
             <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="business/">Business</a>
+            <a class="nav-link" href="/business">Business</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="creatives/">Creatives</a>
+            <a class="nav-link" href="/creatives">Creatives</a>
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
               $dbname = "lifeboxes";
 
               // Create connection
-              $conn = new mysqli($servername, $username, $password, $dbname);
+              $conn = new mysqli_connect($servername, $username, $password, $dbname);
               // Check connection
               if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
@@ -74,7 +74,7 @@
               if ($result->num_rows > 0) {
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                      echo "<li> id: ". $row["id"]. " - Name: ". $row["name"]. " " . $row["category"] . "</li>";
+                      echo "<br> id: ". $row["id"]. " - Name: ". $row["name"]. " " . $row["category"] . "<br>";
                   }
               } else {
                   echo "0 results";
@@ -82,15 +82,14 @@
 
               $conn->close();
           ?>
-          
         </ul>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.slim.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.slim.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
